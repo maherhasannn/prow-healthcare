@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import Features from '@/components/Features'
 import HIPAASafeguards from '@/components/HIPAASafeguards'
-import KnowledgePool from '@/components/KnowledgePool'
+import PrivacyDataProtection from '@/components/PrivacyDataProtection'
 import ChatIntegration from '@/components/ChatIntegration'
 import Footer from '@/components/Footer'
 
@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <Features />
       <HIPAASafeguards />
-      <KnowledgePool />
+      <PrivacyDataProtection />
       <ChatIntegration />
       <Footer />
     </main>

@@ -285,11 +285,18 @@ function PrivacyVisualization() {
               ease: 'easeInOut',
             }}
           />
-          <Shield
-            x="42"
-            y="42"
+          <motion.path
+            d="M50 42 L46 44 L46 48 C46 52 48 54 50 56 C52 54 54 52 54 48 L54 44 Z"
+            fill="currentColor"
             className="text-accent"
-            style={{ width: '16px', height: '16px' }}
+            animate={{
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           />
         </motion.g>
 
