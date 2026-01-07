@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Shield, Lock, EyeOff, Ban, Database, Users, AlertTriangle } from 'lucide-react'
+import { Shield, Lock, Ban, AlertTriangle } from 'lucide-react'
 
 const features = [
   {
