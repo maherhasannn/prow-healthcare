@@ -36,11 +36,11 @@ export default function ChatIntegration() {
               Integrations
             </span>
             <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-balance">
-              Works in Your Clinical Workflow
+              Works Where You Work
             </h2>
             <p className="text-xl text-text/70 max-w-2xl mx-auto">
-              Prow integrates seamlessly with Epic, Cerner, and your existing clinical systems. 
-              No workflow disruption—just intelligent support when providers need it.
+              Prow integrates seamlessly with your existing systems and workflows. 
+              No disruption—just intelligent support when your team needs it most.
             </p>
           </motion.div>
         </motion.div>
@@ -60,7 +60,7 @@ export default function ChatIntegration() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-16 flex flex-wrap justify-center gap-8"
         >
-          {['Epic', 'Cerner', 'Allscripts', 'API'].map((platform, i) => (
+          {['Epic', 'Cerner', 'Slack', 'API'].map((platform, i) => (
             <motion.div
               key={platform}
               whileHover={{ scale: 1.05, y: -2 }}
@@ -77,7 +77,7 @@ export default function ChatIntegration() {
 
 function ChatInterface() {
   return (
-    <div className="relative bg-background-alt rounded-sm border border-text/10 overflow-hidden">
+    <div className="bg-background-alt rounded-sm border border-text/10 overflow-hidden">
       {/* Mock Chat Interface */}
       <div className="p-6 border-b border-text/10 bg-background">
         <div className="flex items-center gap-3">
@@ -89,48 +89,50 @@ function ChatInterface() {
         </div>
       </div>
 
-      <div className="p-6 space-y-4">
-        {/* Messages */}
-        {[
-          { text: 'What are the treatment guidelines for Type 2 diabetes?', side: 'right' },
-          { text: 'Based on ADA 2024 guidelines, first-line therapy includes metformin with lifestyle modifications. For this patient with HbA1c of 8.2%, consider adding SGLT2 inhibitor or GLP-1 receptor agonist.', side: 'left', isProw: true },
-          { text: 'What about contraindications for this patient?', side: 'right' },
-        ].map((msg, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: msg.side === 'right' ? 20 : -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 + i * 0.3, duration: 0.5 }}
-            className={`flex ${msg.side === 'right' ? 'justify-end' : 'justify-start'}`}
-          >
-            <div
-              className={`max-w-[70%] p-4 rounded-sm ${
-                msg.side === 'right'
-                  ? 'bg-text/5 text-text'
-                  : msg.isProw
-                  ? 'bg-accent/10 text-text border-l-2 border-accent'
-                  : 'bg-background text-text'
-              }`}
+      <div className="flex">
+        {/* Chat Messages Area */}
+        <div className="flex-1 p-6 space-y-4 min-w-0">
+          {[
+            { text: 'What are the key points from the latest client briefing?', side: 'right' },
+            { text: 'Based on the briefing document, the key points include three main initiatives: Q4 campaign launch, media strategy pivot, and stakeholder communication timeline. All information is from your internal documents.', side: 'left', isProw: true },
+            { text: 'Can you summarize the media strategy changes?', side: 'right' },
+          ].map((msg, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: msg.side === 'right' ? 20 : -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8 + i * 0.3, duration: 0.5 }}
+              className={`flex ${msg.side === 'right' ? 'justify-end' : 'justify-start'}`}
             >
-              {msg.isProw && (
-                <div className="text-xs font-heading font-semibold text-accent mb-1 uppercase tracking-wider">
-                  Prow
-                </div>
-              )}
-              <p className="text-sm leading-relaxed">{msg.text}</p>
-            </div>
-          </motion.div>
-        ))}
+              <div
+                className={`max-w-[85%] p-4 rounded-sm ${
+                  msg.side === 'right'
+                    ? 'bg-text/5 text-text'
+                    : msg.isProw
+                    ? 'bg-accent/10 text-text border-l-2 border-accent'
+                    : 'bg-background text-text'
+                }`}
+              >
+                {msg.isProw && (
+                  <div className="text-xs font-heading font-semibold text-accent mb-1 uppercase tracking-wider">
+                    Prow
+                  </div>
+                )}
+                <p className="text-sm leading-relaxed">{msg.text}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Prow Sidebar Animation */}
+        {/* Prow Sidebar */}
         <motion.div
           initial={{ x: '100%', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-          className="absolute right-0 top-0 bottom-0 w-1/3 bg-accent/5 border-l border-accent/20 p-4"
+          className="w-64 flex-shrink-0 bg-accent/5 border-l border-accent/20 p-4"
         >
-          <div className="mb-4">
-            <div className="text-xs font-heading font-semibold text-accent uppercase tracking-wider mb-2">
+          <div className="mb-6">
+            <div className="text-xs font-heading font-semibold text-accent uppercase tracking-wider mb-3">
               Context
             </div>
             <div className="space-y-2">
@@ -140,17 +142,17 @@ function ChatInterface() {
             </div>
           </div>
           <div>
-            <div className="text-xs font-heading font-semibold text-accent uppercase tracking-wider mb-2">
+            <div className="text-xs font-heading font-semibold text-accent uppercase tracking-wider mb-3">
               Sources
             </div>
-            <div className="space-y-1.5">
-              {['ADA Guidelines 2024.pdf', 'Patient Chart - EMR.pdf'].map((source, i) => (
+            <div className="space-y-2">
+              {['Client Briefing Q4.pdf', 'Media Strategy Doc.pdf'].map((source, i) => (
                 <motion.div
                   key={source}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.7 + i * 0.1 }}
-                  className="text-xs text-text/60 truncate"
+                  className="text-xs text-text/60 break-words"
                 >
                   {source}
                 </motion.div>

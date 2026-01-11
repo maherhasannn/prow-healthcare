@@ -7,22 +7,22 @@ import { useRef } from 'react'
 const features = [
   {
     title: 'HIPAA-Compliant by Design',
-    description: 'End-to-end encryption and HIPAA safeguards built into every interaction. PHI stays protected and never trains models.',
+    description: 'End-to-end encryption and HIPAA safeguards are built into every interaction. PHI and other sensitive data stay protected and never train models.',
     icon: '🔒',
   },
   {
     title: 'Clinical Intelligence',
-    description: 'Understands medical protocols, clinical guidelines, and your organization\'s policies. Answers grounded in evidence-based medicine.',
+    description: 'Enables teams to ask questions, analyze information, and reason with their data using medical protocols, clinical guidelines, and organizational policies. Answers are grounded in evidence-based sources and controlled internal data.',
     icon: '🧠',
   },
   {
     title: 'EHR Integration',
-    description: 'Works seamlessly with Epic, Cerner, and your existing clinical systems. No disruption to provider workflows.',
+    description: 'Bring your data from Epic, Cerner, and approved internal systems into a secure AI workspace. Think and talk with your data without disrupting existing workflows.',
     icon: '🔌',
   },
   {
     title: 'Point-of-Care Support',
-    description: 'Surface relevant patient information, treatment protocols, and clinical decision support when providers need it most.',
+    description: 'Surface relevant information, protocols, and decision support at the moment of need — enabling secure, real-time reasoning in clinical and other high-stakes professional workflows.',
     icon: '⚡',
   },
 ]
@@ -59,10 +59,10 @@ export default function Features() {
               Capabilities
             </span>
             <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-balance">
-              Built for Healthcare
+              Built for Sensitive & Regulated Work
             </h2>
             <p className="text-xl text-text/70 max-w-2xl mx-auto">
-              Every feature designed with HIPAA compliance, clinical accuracy, and provider workflows in mind.
+              Every feature is designed so teams can think, talk, and collaborate with their data securely — with HIPAA compliance, data privacy, and controlled AI workflows as the foundation.
             </p>
           </motion.div>
 
